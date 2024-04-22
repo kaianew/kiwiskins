@@ -1,0 +1,32 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 30, in script
+    show kaia happy at rightish
+  File "game/script.rpy", line 30, in <module>
+    show kaia happy at rightish
+NameError: name 'rightish' is not defined
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 30, in script
+    show kaia happy at rightish
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1072, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1072, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 30, in <module>
+    show kaia happy at rightish
+NameError: name 'rightish' is not defined
+
+macOS-13.5-arm64-arm-64bit arm64
+Ren'Py 8.2.1.24030407
+kiwiskins 1.0
+Mon Apr 22 15:10:16 2024

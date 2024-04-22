@@ -1,0 +1,10 @@
+﻿I'm sorry, but errors were detected in your script. Please correct the
+errors listed below, and try again.
+
+
+File "game/script.rpy", line 30: end of line expected.
+    show kaia happy at right xalign 0.9
+                             ^
+
+Ren'Py Version: Ren'Py 8.2.1.24030407
+Mon Apr 22 15:14:37 2024
