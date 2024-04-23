@@ -20,10 +20,15 @@ image chat 2_1 = "images/chat2_1.png"
 image chat 2_2 = "images/chat2_2.png"
 image chat 2_3 = "images/chat2_3.png"
 
-image library = "images/library_better.png"
-image bedroom = "images/bedroom.png"
-image cafeteria = "images/cafeteria_bright.png"
-image hallway = "images/hallway_better.png"
+image library morning = "images/bgs_resized/library_morning.jpg"
+image library twilight = "images/bgs_resized/library_twilight.jpg"
+image library night = "images/bgs_resized/library_night.jpg"
+image library midnight = "images/bgs_resized/library_midnight.jpg"
+image bedroom = "images/bgs_resized/bedroom.jpg"
+image cafeteria night = "images/bgs_resized/cafeteria_night.jpg"
+image cafeteria special = "images/bgs_resized/cafeteria_special.jpg"
+image hallway day = "images/bgs_resized/hallway_day.jpg"
+image hallway night = "images/bgs_resized/hallway_night.jpg"
 
 
 # The game starts here.
@@ -55,7 +60,7 @@ label start:
 
     "You'll try to keep it a secret for now. With a sigh, you close your laptop and head out into the fray."
 
-    scene hallway with dissolve
+    scene hallway day with dissolve
 
     "You've arrived at St. Evangeline midway through the day, and it already seems like someone wants to talk to you."
 
@@ -76,7 +81,7 @@ label ed_lunch:
     "Edward beams, gesturing in the direction of the cafeteria."
     "Edward" "Great! I'll show you to our regular table."
 
-    scene cafeteria_bright with dissolve
+    scene cafeteria special with dissolve
     show npc
 
     "You enjoy a nice bowl of noodles with your new pals. The friendly chatter of Edward and all his friends lightens your mood slightly."
@@ -89,7 +94,7 @@ label no_lunch:
     jump after_school
 
 label after_school:
-    scene library with dissolve
+    scene library twilight with dissolve
 
     "You're in the school's library, mulling over the day. Your classes were enriching. You were right to come here; your class on Emily Dickinson is enthralling."
     "But, despite all this, you've had a thought in the back of your head that's been getting louder and louder: you really do want to know who poliwag98 is. They're your best friend!"
@@ -139,6 +144,8 @@ label athan_talk:
 label athan_game:
     "Athan looks super excited. He starts digging around in his backpack for another mouse."
     athan "Hang on, I have another mouse with really good haptics and stability in here. You're gonna love this!"
+    scene library night
+    show athan happy
     "There are a few more mechanics than you can get used to in such a short time, but Athan looks happy to teach you how to play. You're excited to see him again!"
     jump home_after
 
@@ -218,6 +225,9 @@ label finish_kaia_talk:
     kaia "Yes, of course!"
     "He smiles, genuine."
     kaia "I wouldn't want to leave you stranded here when you're new. It can get a little...paranormal."
+
+    scene hallway night
+    show kaia happy
 
     "Satisfied that you'll see him again, you pack up and walk with him to the bike rack, chatting about mundane things."
     jump home_after
