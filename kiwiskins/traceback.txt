@@ -1,24 +1,24 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 132, in script
-    *italic centered "Hail to thee, blithe Spirit!
-Exception: Sayer '*italic' is not defined.
+  File "game/script.rpy", line 109, in script
+    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
+ValueError: unsupported format character 'v' (0x76) at index 47
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 132, in script
-    *italic centered "Hail to thee, blithe Spirit!
+  File "game/script.rpy", line 109, in script
+    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
   File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 2557, in execute
     Say.execute(self)
-  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 575, in execute
-    who = eval_who(self.who, self.who_fast)
-  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 464, in eval_who
-    raise Exception("Sayer '%s' is not defined." % who)
-Exception: Sayer '*italic' is not defined.
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 615, in execute
+    renpy.exports.say(who, what, *args, **kwargs)
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/exports.py", line 1482, in say
+    what = what % tag_quoting_dict
+ValueError: unsupported format character 'v' (0x76) at index 47
 
 macOS-13.5-arm64-arm-64bit arm64
 Ren'Py 8.2.1.24030407
 kiwiskins 1.0
-Tue Apr 23 11:17:26 2024
+Tue Apr 23 12:37:42 2024

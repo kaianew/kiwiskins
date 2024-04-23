@@ -12,6 +12,14 @@ image kaia sad = "images/sad_kaia.png"
 image athan happy = "images/happy_athan.png"
 image npc = "images/datboi.png"
 
+image chat 1 = "images/chat_reveal.png"
+image chat 1_1 = "images/chat_finish.png"
+
+image chat 2 = "images/nightchat_begin.png"
+image chat 2_1 = "images/chat2_1.png"
+image chat 2_2 = "images/chat2_2.png"
+image chat 2_3 = "images/chat2_3.png"
+
 image library = "images/library_better.png"
 image bedroom = "images/bedroom.png"
 image cafeteria = "images/cafeteria_bright.png"
@@ -27,14 +35,15 @@ label start:
     With a bit of elbow grease, and a lot of luck, you managed to persuade the dean to let all of your credits transfer and lock in a great merit scholarship. The scholarly resources 
     available here are…low caliber, to say the least." with dissolve
 
-    centered "Your best friend, who you met on rumblr.com, messages you just as you’re pulling on your rain jacket to attend your first day of your last year at 
-    St. Evangeline of Death University." with dissolve
+    scene bedroom with dissolve
+    "Your best friend, who you met on rumblr.com, messages you just as you’re pulling on your rain jacket to attend your first day of your last year at 
+    St. Evangeline of Death University."
 
-    scene bedroom
-
-    "FIXME: add chatroom dialogue"
+    scene chat 1 with dissolve
 
     "!? poliwag98 lives in Spoons? You knew they lived in the PNW, but you never thought you’d be moving to the same city as them."
+
+    scene bedroom
     
     "You hesitate to tell them, since they used to be strict on never sharing parts of your identities a year ago, when you didn’t know each other well yet. 
     They’ve had a few experiences that made them more wary about online contacts."
@@ -42,7 +51,9 @@ label start:
     "Over the months, they’ve opened up and told you about their hobbies, such as sewing and impressionist art, but you don’t want to endanger such an 
     important friendship by breaking the secrecy just yet."
 
-    "FIXME: finish chatroom dialogue"
+    scene chat 1_1
+
+    "You'll try to keep it a secret for now. With a sigh, you close your laptop and head out into the fray."
 
     scene hallway with dissolve
 
@@ -103,10 +114,10 @@ label athan_talk:
     "You tap his shoulder, feeling brave."
     "You" "Sorry for your loss. What are you up to?"
 
-    "The man still looks grumpy, but you don't {i}think{/i} it's because of you bothering him."
-    athan "Hey, you're the new student, right? I'm Athan. I do engineering, and stuff. I'm just gaming...super tired from staying up all day working."
+    "The man still looks grumpy, but you don't {i}think{/i} it's because of you bothering him..."
+    athan "Hey, you're the new student, right? I'm Athan. I do engineering, and stuff. I'm gaming -- just {i}super{/i} tired from staying up all day working."
     "He groans long-sufferingly, ruffling a hand through his fluffy hair."
-    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
+    athan "I mean, come on. With a population of over 26\% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
     Seriously, I'm dying out here. With every ray of sunshine, I feel my soul shriveling up like a raisin."
 
     hide athan sad
@@ -213,6 +224,42 @@ label finish_kaia_talk:
 
 label home_chat:
     scene bedroom with dissolve
+    "You have some time before bed."
+    menu:
+        "Just go to bed. You want to get to tomorrow!":
+            return
+        "Take a warm bath.":
+            jump take_bath
+        "Talk to poliwag98 on the computer.":
+            jump finish_home_chat
+
+label take_bath:
+    # +NRG
+    "The warm water feels great after straining yourself studying today and the lavender-scented bubbles are soothing."
+    return
+
+label finish_home_chat:
+    "You open up your computer to start a conversation."
+    show chat 2 with dissolve
+
+    "Honestly, you're not feeling great. You feel sniffly and tired. You must have eaten something with garlic in it recently."
+
+    show chat 2_1
+
+    "It being dark outside {i}is{/i} helping your headache, though."
+
+    show chat 2_2
+
+    "You’re a bit skeptical, because you don’t have daily weariness or feel stronger at night, and your parents never showed signs of vampirism.
+    Maybe poliwag98 is just paranoid about it because of their own experiences? Still, you want to say something to stop them from worrying."
+
+    show chat 2_3
+
+    "Your reassurance seems to stop them from worrying for now, and they drop the topic."
+
+    scene bedroom with dissolve 
+    "Your conversation turns to other matters: a new visual novel which 
+    seems to include elements of both poetry and artistic styles poliwag98 likes, joining both of your interests..."
     return
 
 label home_after:
