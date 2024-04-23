@@ -99,8 +99,42 @@ label after_school:
 
 label athan_talk:
     hide kaia happy
-    "meow"
-    return
+    "The tattooed man is gaming at his laptop, giant black headphones covering his ears. He has dark circles underneath his eyes and scowls as a \"Game Over\" message flickers across his screen."
+    "You tap his shoulder, feeling brave."
+    "You" "Sorry for your loss. What are you up to?"
+
+    "The man still looks grumpy, but you don't {i}think{/i} it's because of you bothering him."
+    athan "Hey, you're the new student, right? I'm Athan. I do engineering, and stuff. I'm just gaming...super tired from staying up all day working."
+    "He groans long-sufferingly, ruffling a hand through his fluffy hair."
+    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
+    Seriously, I'm dying out here. With every ray of sunshine, I feel my soul shriveling up like a raisin."
+
+    hide athan sad
+    show athan happy
+
+    "He flashes a smile at you, a fanged incisor poking out."
+    athan "But that means I'm just getting hyped up now! I mean, I'm still worn down, but...agh. Sorry, you didn't ask about any of this. Do you want to play some {i}Call of The Wild 4{/i} with me?
+    I haven't gotten the chance to try the couch co-op yet."
+
+    menu:
+        "You're so down. This looks like fun!":
+            # -NRG
+            jump athan_game
+        "Eh, this isn't really your style. Politely decline.":
+            jump end_athan
+        "You'd like to, but you really want to go home and chat with poliwag98.":
+            jump end_athan
+
+label athan_game:
+    "Athan looks super excited. He starts digging around in his backpack for another mouse."
+    athan "Hang on, I have another mouse with really good haptics and stability in here. You're gonna love this!"
+    "There are a few more mechanics than you can get used to in such a short time, but Athan looks happy to teach you how to play. You're excited to see him again!"
+    jump home_after
+
+label end_athan:
+    "Athan doesn't seem phased by your rejection."
+    athan "I get it, you got stuff to do at home. But hey, I'm always down to play a game with you, so just let me know!"
+    jump home_chat
 
 label kaia_talk:
     hide athan sad
