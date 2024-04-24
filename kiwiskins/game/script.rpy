@@ -20,6 +20,10 @@ image chat 2_1 = "images/chat2_1.png"
 image chat 2_2 = "images/chat2_2.png"
 image chat 2_3 = "images/chat2_3.png"
 
+
+define nrg_string = "images/energy_bar/2.png"
+define nrg = 2
+
 image library morning = "images/bgs_resized/library_morning.jpg"
 image library twilight = "images/bgs_resized/library_twilight.jpg"
 image library night = "images/bgs_resized/library_night.jpg"
@@ -29,6 +33,10 @@ image cafeteria night = "images/bgs_resized/cafeteria_night.jpg"
 image cafeteria special = "images/bgs_resized/cafeteria_special.jpg"
 image hallway day = "images/bgs_resized/hallway_day.jpg"
 image hallway night = "images/bgs_resized/hallway_night.jpg"
+
+transform upper_left:
+    xalign 0.05
+    yalign 0.05
 
 
 # The game starts here.
@@ -41,6 +49,7 @@ label start:
     available here are…low caliber, to say the least." with dissolve
 
     scene bedroom with dissolve
+    show image [nrg_string] at upper_left
     "Your best friend, who you met on rumblr.com, messages you just as you’re pulling on your rain jacket to attend your first day of your last year at 
     St. Evangeline of Death University."
 
@@ -49,6 +58,7 @@ label start:
     "!? poliwag98 lives in Spoons? You knew they lived in the PNW, but you never thought you’d be moving to the same city as them."
 
     scene bedroom
+    show image [nrg_string] at upper_left
     
     "You hesitate to tell them, since they used to be strict on never sharing parts of your identities a year ago, when you didn’t know each other well yet. 
     They’ve had a few experiences that made them more wary about online contacts."
@@ -61,6 +71,7 @@ label start:
     "You'll try to keep it a secret for now. With a sigh, you close your laptop and head out into the fray."
 
     scene hallway day with dissolve
+    show image [nrg_string] at upper_left
 
     "You've arrived at St. Evangeline midway through the day, and it already seems like someone wants to talk to you."
 
@@ -78,10 +89,14 @@ label start:
 
 label ed_lunch:
     # -NRG
+    $ nrg = nrg - 1
+    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    show image [nrg_string] at upper_left
     "Edward beams, gesturing in the direction of the cafeteria."
     "Edward" "Great! I'll show you to our regular table."
 
     scene cafeteria special with dissolve
+    show image [nrg_string] at upper_left
     show npc
 
     "You enjoy a nice bowl of noodles with your new pals. The friendly chatter of Edward and all his friends lightens your mood slightly."
@@ -95,6 +110,7 @@ label no_lunch:
 
 label after_school:
     scene library twilight with dissolve
+    show image [nrg_string] at upper_left
 
     "You're in the school's library, mulling over the day. Your classes were enriching. You were right to come here; your class on Emily Dickinson is enthralling."
     "But, despite all this, you've had a thought in the back of your head that's been getting louder and louder: you really do want to know who poliwag98 is. They're your best friend!"
@@ -135,6 +151,9 @@ label athan_talk:
     menu:
         "You're so down. This looks like fun!":
             # -NRG
+            $ nrg = nrg - 1
+            $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+            show image [nrg_string] at upper_left
             jump athan_game
         "Eh, this isn't really your style. Politely decline.":
             jump end_athan
@@ -145,6 +164,7 @@ label athan_game:
     "Athan looks super excited. He starts digging around in his backpack for another mouse."
     athan "Hang on, I have another mouse with really good haptics and stability in here. You're gonna love this!"
     scene library night
+    show image [nrg_string] at upper_left
     show athan happy
     "There are a few more mechanics than you can get used to in such a short time, but Athan looks happy to teach you how to play. You're excited to see him again!"
     jump home_after
@@ -227,13 +247,21 @@ label finish_kaia_talk:
     kaia "I wouldn't want to leave you stranded here when you're new. It can get a little...paranormal."
 
     scene hallway night
+    # + NRG for nighttime
+    $ nrg = nrg + 1
+    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    show image [nrg_string] at upper_left
     show kaia happy
 
     "Satisfied that you'll see him again, you pack up and walk with him to the bike rack, chatting about mundane things."
     jump home_after
 
 label home_chat:
+    # +NRG because nighttime
+    $ nrg = nrg + 1
+    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
     scene bedroom with dissolve
+    show image [nrg_string] at upper_left
     "You have some time before bed."
     menu:
         "Just go to bed. You want to get to tomorrow!":
@@ -245,6 +273,9 @@ label home_chat:
 
 label take_bath:
     # +NRG
+    $ nrg = nrg + 1
+    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    show image [nrg_string] at upper_left
     "The warm water feels great after straining yourself studying today and the lavender-scented bubbles are soothing."
     return
 
@@ -274,5 +305,6 @@ label finish_home_chat:
 
 label home_after:
     scene bedroom with dissolve
+    show image [nrg_string] at upper_left
     "mew"
     return

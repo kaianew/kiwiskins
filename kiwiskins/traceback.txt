@@ -1,24 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 109, in script
-    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
-ValueError: unsupported format character 'v' (0x76) at index 47
+  File "game/script.rpy", line 278, in script
+    show image [nrg_string] at upper_left
+Exception: DynamicImage ['images/energy_bar/4.png']: could not find image. ('images/energy_bar/4.png')
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 109, in script
-    athan "I mean, come on. With a population of over 26% vampires at St. Evangeline, you think they would make some accommodations for us vampires so we don't have to work during the day.
-  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 2557, in execute
-    Say.execute(self)
-  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 615, in execute
-    renpy.exports.say(who, what, *args, **kwargs)
-  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/exports.py", line 1482, in say
-    what = what % tag_quoting_dict
-ValueError: unsupported format character 'v' (0x76) at index 47
+  File "game/script.rpy", line 278, in script
+    show image [nrg_string] at upper_left
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1113, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1076, in show_imspec
+    renpy.config.show(name,
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/exports.py", line 765, in show
+    sls.add(layer, img, key, zorder, behind, at_list=at_list, name=name, atl=atl, default_transform=default_transform, transient=transient)
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/display/scenelists.py", line 456, in add
+    thing.set_transform_event("replace")
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/display/transform.py", line 743, in set_transform_event
+    self.child.set_transform_event(event)
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/display/image.py", line 760, in set_transform_event
+    self.find_target()
+  File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/display/image.py", line 683, in find_target
+    raise Exception(error)
+Exception: DynamicImage ['images/energy_bar/4.png']: could not find image. ('images/energy_bar/4.png')
 
 macOS-13.5-arm64-arm-64bit arm64
 Ren'Py 8.2.1.24030407
 kiwiskins 1.0
-Tue Apr 23 12:37:42 2024
+Tue Apr 23 20:21:51 2024
