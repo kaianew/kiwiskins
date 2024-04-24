@@ -306,5 +306,5 @@ label finish_home_chat:
 label home_after:
     scene bedroom with dissolve
     show image [nrg_string] at upper_left
-    "mew"
+    "TBD...."
     return
