@@ -2,13 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 92: expected statement.
-    nrg = nrg - 1
-        ^
-
-File "game/script.rpy", line 93: expected statement.
-    nrg_string = "images/energy_bar/" + [str(nrg)] + ".png"
-               ^
+File "game/script.rpy", line 25: expected '=' not found.
+    define global nrg = 2
+                  ^
 
 Ren'Py Version: Ren'Py 8.2.1.24030407
-Tue Apr 23 19:33:09 2024
+Wed Apr 24 11:03:29 2024

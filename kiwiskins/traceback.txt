@@ -1,14 +1,14 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 278, in script
+  File "game/script.rpy", line 294, in script
     show image [nrg_string] at upper_left
 Exception: DynamicImage ['images/energy_bar/4.png']: could not find image. ('images/energy_bar/4.png')
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 278, in script
+  File "game/script.rpy", line 294, in script
     show image [nrg_string] at upper_left
   File "/Users/kaia/Desktop/renpy-8.2.1-sdk/renpy/ast.py", line 1113, in execute
     show_imspec(self.imspec, atl=getattr(self, "atl", None))
@@ -29,4 +29,4 @@ Exception: DynamicImage ['images/energy_bar/4.png']: could not find image. ('ima
 macOS-13.5-arm64-arm-64bit arm64
 Ren'Py 8.2.1.24030407
 kiwiskins 1.0
-Tue Apr 23 20:21:51 2024
+Wed Apr 24 11:18:07 2024

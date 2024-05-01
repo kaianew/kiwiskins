@@ -24,6 +24,23 @@ image chat 2_3 = "images/chat2_3.png"
 define nrg_string = "images/energy_bar/2.png"
 define nrg = 2
 
+init python:
+    def energy_change(nrg, up):
+        temp_string = ""
+        if up:
+            if nrg == 3:
+                return nrg_string
+            nrg += 1
+            temp_string = "images/energy_bar/" + str(nrg) + ".png"
+            return temp_string
+        else:
+            if nrg == 0:
+                # FIXME: in the future, consider adding behavior that automatically sends you home here
+                return nrg_string
+            nrg -= 1
+            temp_string = "images/energy_bar/" + str(nrg) + ".png"
+            return temp_string
+
 image library morning = "images/bgs_resized/library_morning.jpg"
 image library twilight = "images/bgs_resized/library_twilight.jpg"
 image library night = "images/bgs_resized/library_night.jpg"
@@ -89,8 +106,7 @@ label start:
 
 label ed_lunch:
     # -NRG
-    $ nrg = nrg - 1
-    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    $ nrg_string = energy_change(nrg, 0)
     show image [nrg_string] at upper_left
     "Edward beams, gesturing in the direction of the cafeteria."
     "Edward" "Great! I'll show you to our regular table."
@@ -151,8 +167,7 @@ label athan_talk:
     menu:
         "You're so down. This looks like fun!":
             # -NRG
-            $ nrg = nrg - 1
-            $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+            $ nrg_string = energy_change(nrg, 0)
             show image [nrg_string] at upper_left
             jump athan_game
         "Eh, this isn't really your style. Politely decline.":
@@ -164,6 +179,8 @@ label athan_game:
     "Athan looks super excited. He starts digging around in his backpack for another mouse."
     athan "Hang on, I have another mouse with really good haptics and stability in here. You're gonna love this!"
     scene library night
+    # jump energy up because it's nighttime
+    $ nrg_string = energy_change(nrg, 1)
     show image [nrg_string] at upper_left
     show athan happy
     "There are a few more mechanics than you can get used to in such a short time, but Athan looks happy to teach you how to play. You're excited to see him again!"
@@ -248,8 +265,7 @@ label finish_kaia_talk:
 
     scene hallway night
     # + NRG for nighttime
-    $ nrg = nrg + 1
-    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    $ nrg_string = energy_change(nrg, 1)
     show image [nrg_string] at upper_left
     show kaia happy
 
@@ -258,8 +274,7 @@ label finish_kaia_talk:
 
 label home_chat:
     # +NRG because nighttime
-    $ nrg = nrg + 1
-    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    $ nrg_string = energy_change(nrg, 1)
     scene bedroom with dissolve
     show image [nrg_string] at upper_left
     "You have some time before bed."
@@ -273,8 +288,7 @@ label home_chat:
 
 label take_bath:
     # +NRG
-    $ nrg = nrg + 1
-    $ nrg_string = "images/energy_bar/" + str(nrg) + ".png"
+    $ nrg_string = energy_change(nrg, 1)
     show image [nrg_string] at upper_left
     "The warm water feels great after straining yourself studying today and the lavender-scented bubbles are soothing."
     return
